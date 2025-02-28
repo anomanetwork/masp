@@ -483,6 +483,10 @@ impl<K> fees::InputView<(), K> for SpendDescriptionInfo<K> {
     fn key(&self) -> &K {
         &self.extsk
     }
+
+    fn address(&self) -> Option<PaymentAddress> {
+        PaymentAddress::from_parts(self.diversifier, self.note.pk_d)
+    }
 }
 
 /// A struct containing the information required in order to construct a

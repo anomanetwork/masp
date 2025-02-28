@@ -16,6 +16,8 @@ pub trait InputView<NoteRef, Key> {
     fn asset_type(&self) -> AssetType;
     /// The spend/view key of the input being spent.
     fn key(&self) -> &Key;
+    /// The payment address of this input
+    fn address(&self) -> Option<PaymentAddress>;
 }
 
 /// A trait that provides a minimized view of a Sapling conversion suitable for use in
